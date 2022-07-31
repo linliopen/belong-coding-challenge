@@ -1,0 +1,15 @@
+Host PublicInstance
+        HostName 3.26.73.148  #public ip of ec2 in public subnet
+        User ubuntu
+        IdentityFile ~/Downloads/ubuntu10-480s.pem
+        Port 22
+        IdentitiesOnly=yes
+
+
+Host PrivateInstance
+        HostName 172.31.62.229
+        User ubuntu
+        IdentityFile ~/Downloads/ubuntu10-480s.pem
+        Port 22
+        IdentitiesOnly=yes
+        ProxyJump PublicInstance

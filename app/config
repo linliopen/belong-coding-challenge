@@ -1,0 +1,15 @@
+Host bastion
+  HostName 3.105.150.151
+  User ubuntu
+  IdentityFile ~/keys/belong-coding-challenge-bastion-ec2-instance-key.pem
+  Port 22
+  IdentitiesOnly yes
+
+Host service
+  HostName 10.32.50.216
+  User ubuntu
+  IdentityFile ~/keys/belong-coding-challenge-service-ec2-instance-key.pem
+  Port 22
+  IdentitiesOnly yes
+  ProxyJump bastion
+  ProxyCommand ssh -W %h:%p bastion
